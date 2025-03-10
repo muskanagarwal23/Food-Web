@@ -1,0 +1,24 @@
+{
+  "name": "swiggy",
+  "version": "1.0.0",
+  "description": "creating a food website",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "author": "muskan agarwal",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/preset-react": "^7.26.3",
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
+}
