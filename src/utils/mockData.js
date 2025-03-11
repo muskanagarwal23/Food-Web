@@ -1,54 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY="/>
-            </div>
-
-            <div className="nav-items">
-                <ul>
-                    <li>HOME</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-};
-
-const ResCard=(props)=>{
-    const {resData} = props;
-
-    const { 
-          cloudinaryImageId,
-          name,
-          cuisines,
-          avgRating,
-          deliveryTime,
-          costForTwo
-        } = resData?.info;
-    return(
-        <div className="res-card">
-         <img className="burger-img" 
-        alt="burger"
-        src= { "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/" 
-              + cloudinaryImageId
-            }
-        />   
-        <h3>{name}</h3>
-        <h4>{cuisines.join(" , ")}</h4>
-        <h4>{avgRating}</h4>
-        <h4>{deliveryTime}</h4>
-        <h4>{costForTwo}</h4> 
-        </div>
-    )
-}
-
-const resList = 
+ const resList = 
      [
        
         {
@@ -543,50 +493,5 @@ const resList =
                           }
                         }
 ];
-    
-const Body = () =>{
-    return(
-        <div className="body">
-            <div className="search">
-                Search
-            </div>
 
-            <div className="res-container">
-                { 
-                    resList.map(restaurant => <ResCard key={restaurant.info.id} resData={restaurant}/>)
-                }
-                
-            </div>
-        </div>
-    )
-}
-
-const Footer = () =>{
-    return (
-        <div className="footer">
-            <div className="footer-items">
-                <ul>
-                    <li>@all Copyright rights reserved</li>
-                    <li>Social Links</li>
-                    <li>Available in 20 cities</li>
-                    <li>Life at Eatify</li>
-                        
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Body/>
-            <Footer/>
-        </div>
-    );
-};
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default resList;
