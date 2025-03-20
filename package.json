@@ -11,13 +11,17 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
-    "parcel": "^2.13.3",
+    "parcel": "^2.14.0",
     "process": "^0.11.10"
   },
   "dependencies": {
+    "@parcel/core": "^2.14.0",
+    "@parcel/rust": "^2.14.0",
+    "@parcel/transformer-react-refresh-wrap": "^2.14.1",
     "cors": "^2.8.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.30.0"
   },
   "browserslist": [
     "last 2 versions"

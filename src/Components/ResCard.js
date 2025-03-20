@@ -20,7 +20,7 @@ const ResCard = (props) => {
         avgRating,
         sla,
         costForTwo,
-    } = resData.card.card.info;
+    } = resData?.info;
 
     return (
         <div className="res-card">
@@ -31,9 +31,9 @@ const ResCard = (props) => {
             />
             <h3>{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
-            <h4>Rating: {avgRating} </h4>
-            <h4>Delivery Time: {sla?.deliveryTime} minutes</h4>
-            <h4>Cost for Two: {costForTwo}</h4>
+            <h4>{avgRating} </h4>
+            <h4>{sla?.slaString}</h4>
+            <h4>{costForTwo}</h4>
         </div>
     );
 };
