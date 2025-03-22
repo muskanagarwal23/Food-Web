@@ -22,6 +22,13 @@ Footer
  -useEffect
  -useRouteError
 
+ #React-Router-DOM
+ -adds routing paths
+ -useRouteError hook
+ -Outlet
+ -Link tag
+ 
+
 #class-based components
 -return inside render
 -no hooks

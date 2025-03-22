@@ -6,16 +6,26 @@ class UserClass extends  React.Component{
 
         //console.log(props);
 
-        this.state = { 
-            count:0,
-            counter:1
+        this.state = {
+            userInfo:{
+                name:"dummy",
+                location:"default",
+                
+
+            }
         };
-        console.log("child constructor");
+        //console.log("child constructor");
         
         
     }
-    componentDidMount(){
-        console.log("child Did Mount");
+    async componentDidMount(){
+        const data = await fetch("https://api.github.com/users/muskanagarwal23");
+        const json = await data.json();
+        this.setState({
+            userInfo: json,
+        })
+        console.log(json);
+        
         
     }
 
@@ -23,24 +33,16 @@ class UserClass extends  React.Component{
     
     render(){
         
-         const {name,location} = this.props;
-         const {count,counter} = this.state;
-         console.log("child Render");
+        const {name,location,public_repos,
+            avatar_url} = this.state.userInfo;
         return(
         <div className="user">
+        <h1>Github User</h1>
+        <img src="avatar_url"/>    
         <h2>Name:{name}</h2>
-        <h4>Backend Developer</h4>
+        <h4>Frontend Developer</h4>
         <h2>Location:{location}</h2>
-        <h4>count:{count}</h4>
-        <h4>counter:{counter}</h4>
-        <button onClick={() => {
-            this.setState({
-                count: this.state.count+2,
-                counter:this.state.counter+2,
-            })
-        }}
-          >+2</button>
-
+        <h2>no. of repos:{public_repos}</h2>
         </div>
         )
         
