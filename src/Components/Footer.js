@@ -1,12 +1,12 @@
 const Footer = () =>{
     return (
-        <div className="footer">
-            <div className="footer-items">
-                <ul>
-                    <li>@all Copyright rights reserved</li>
-                    <li>Social Links</li>
-                    <li>Available in 20 cities</li>
-                    <li>Life at Eatify</li>
+        <div className="border-t border-b border-gray-300 w-full">
+            <div className="flex items-center justify-center py-4">
+                <ul className="flex p-2 m-2 ">
+                    <li className="px-4">@all Copyright rights reserved</li>
+                    <li className="px-4">Social Links</li>
+                    <li className="px-4">Available in 20 cities</li>
+                    <li className="px-4">Life at Eatify</li>
                         
                 </ul>
             </div>

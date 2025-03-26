@@ -2,6 +2,7 @@ import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useStatus from "../utils/useStatus";
 
 const Body = () => {
     const [list_of_restaurents, setList_of_restaurents] = useState([]);
@@ -18,7 +19,7 @@ const Body = () => {
     //     setOriginalList(list_of_restaurents);
     // },[list_of_restaurents])
     
-    console.log("body rendered");
+    //console.log("body rendered");
     
 
     useEffect(() => {
@@ -48,18 +49,23 @@ const Body = () => {
     //     return <Shimmer />;
     // }
 
-
+    const onlineStatus = useStatus();
+    if(onlineStatus === false) return ( 
+    <h1>
+        looks like you are offline!
+        </h1> )
+    
+    
     return list_of_restaurents.length === 0 ? <Shimmer /> : (
-       
-       
        <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" 
+            <div className="filter flex ">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border border-solid border-black hover:border-gray-500 hover:scale-105" 
                     value={searchText} onChange={(e) => {
                       setSearchText(e.target.value);
                     }}></input>
-                    <button onClick={() =>{
+                    <button className="px-4 py-2 bg-green-300 m-4 rounded-2xl hover:cursor-pointer hover:bg-green-400 hover:scale-105"
+                    onClick={() =>{
                          console.log(searchText);
 
                          const filteredRes = list_of_restaurents.filter((res) =>
@@ -77,9 +83,9 @@ const Body = () => {
                 </div>
 
                 
-                    
+                <div className="search m-4 p-4 flex items-center">
                 <button
-                    className="filter-btn"
+                    className="px-4 py-2 bg-gray-200 m-4 rounded-2xl hover:cursor-pointer hover:scale-105"
                     onClick={() => {
                         const filteredList = filteredRestaurent.filter(
                             (res) => res?.info?.avgRating > 4
@@ -89,9 +95,11 @@ const Body = () => {
                 >
                     Top Rated
                 </button>
+                </div>   
+                
             </div>
  
-            <div className="res-container">
+            <div className="flex flex-wrap items-center justify-center">
                 { 
                 
                 filteredRestaurent.map((restaurant) => (

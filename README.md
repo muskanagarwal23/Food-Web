@@ -20,6 +20,7 @@ Footer
 #React Hooks
  -useState
  -useEffect
+ useParams
  -useRouteError
 
  #React-Router-DOM
@@ -36,6 +37,14 @@ Footer
 -to use state variables "this.state" which is a big object and can contain many state variables
 -"this.setState" used to update these state variables
 -componentDidMount() is used to make API calls because this funtion is called after the component is rendered
+
+#custom hooks
+-useMenu :- to fetch the menu data from api
+-useStatus :- to show the user is offline and show the status
+
+#lazyloading
+-suspense
+-fallback
 
 
 

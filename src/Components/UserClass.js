@@ -36,9 +36,9 @@ class UserClass extends  React.Component{
         const {name,location,public_repos,
             avatar_url} = this.state.userInfo;
         return(
-        <div className="user">
+        <div className="inline-block border-[1px] border-solid border-black m-5 w-[250px] h-[300px] text-center bg-[#f0f0f0]">
         <h1>Github User</h1>
-        <img src="avatar_url"/>    
+        <img className="w-[150px] text-center mx-auto" src="https://img.freepik.com/premium-vector/female-user-profile-avatar-is-woman-character-screen-saver-with-emotions_505620-617.jpg?w=360"/>    
         <h2>Name:{name}</h2>
         <h4>Frontend Developer</h4>
         <h2>Location:{location}</h2>

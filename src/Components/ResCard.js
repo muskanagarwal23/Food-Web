@@ -23,13 +23,14 @@ const ResCard = (props) => {
     } = resData?.info;
 
     return (
-        <div className="res-card">
+        <div className="m-4 p-4 w-[250px] rounded-md text-center hover:shadow-lg hover:scale-105 " 
+        style={{backgroundColor:"#f0f0f0"}}>
             <img
-                className="res-card-img"
+                className="rounded-xs w-32 h-32 mx-auto"
                 alt={name}
                 src={Img_URL + cloudinaryImageId}
             />
-            <h3>{name}</h3>
+            <h3 className="font-bold py-4">{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
             <h4>{avgRating} </h4>
             <h4>{sla?.slaString}</h4>
