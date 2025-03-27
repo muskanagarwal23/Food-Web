@@ -8,17 +8,10 @@ class About extends Component{
     
     
     }
-    componentDidMount(){
-        
-        
-    }
-
-   
-     
-    render(){
+    
+  render(){
        
-        
-        return(
+    return(
     <div>
         <UserClass name = {"Class-based"} location = {"Jaipur"}/>
 

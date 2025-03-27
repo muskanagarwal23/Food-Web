@@ -23,7 +23,7 @@ const ResCard = (props) => {
     } = resData?.info;
 
     return (
-        <div className="m-4 p-4 w-[250px] rounded-md text-center hover:shadow-lg hover:scale-105 " 
+        <div className="   m-4 p-4 w-[250px] rounded-md text-center hover:shadow-lg hover:scale-105 transition" 
         style={{backgroundColor:"#f0f0f0"}}>
             <img
                 className="rounded-xs w-32 h-32 mx-auto"
@@ -37,6 +37,18 @@ const ResCard = (props) => {
             <h4>{costForTwo}</h4>
         </div>
     );
+};
+
+//higher order component
+export const WithOpenLabel = (ResCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute   bg-gray-800  text-white px-2  rounded-md hover:left-5" >Open</label>
+                < ResCard {...props} />
+            </div>
+        );
+    };
 };
 
 export default ResCard;

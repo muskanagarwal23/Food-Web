@@ -1,8 +1,12 @@
-import ResCard from "./ResCard";
+import ResCard , {WithOpenLabel} from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useStatus from "../utils/useStatus";
+import useStatus from "../utils/useStatus"; 
+
+
+
+
 
 const Body = () => {
     const [list_of_restaurents, setList_of_restaurents] = useState([]);
@@ -18,8 +22,9 @@ const Body = () => {
     // useEffect(()=> {
     //     setOriginalList(list_of_restaurents);
     // },[list_of_restaurents])
+    const ResCardOpen = WithOpenLabel(ResCard);
     
-    //console.log("body rendered");
+    console.log("body rendered",list_of_restaurents);
     
 
     useEffect(() => {
@@ -51,9 +56,12 @@ const Body = () => {
 
     const onlineStatus = useStatus();
     if(onlineStatus === false) return ( 
-    <h1>
-        looks like you are offline!
-        </h1> )
+    <div>
+        <h1 className="font-bold">
+        Looks like you are offline!
+        </h1>
+        
+    </div> )
     
     
     return list_of_restaurents.length === 0 ? <Shimmer /> : (
@@ -74,7 +82,7 @@ const Body = () => {
                               .includes(searchText.toLowerCase())
                           );
 
-                         console.log("filtered:" ,filteredRes);
+                         //console.log("filtered:" ,filteredRes);
 
                          setFilteredRes(filteredRes);
                     }}
@@ -106,9 +114,12 @@ const Body = () => {
                        <Link 
                        key = {restaurant?.info?.id} 
                        to = {"/restaurant/"+ restaurant?.info?.id}>
-                        <ResCard
-                            resData={restaurant} />
-                        </Link>
+                       
+                       {restaurant.info.isOpen ? (
+                       <ResCardOpen resData={restaurant} /> ) : ( 
+                       <ResCard resData={restaurant} /> )}
+                        </Link>   
+                        
                     ))}
             </div>
         </div>
